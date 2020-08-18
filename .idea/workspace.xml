@@ -115,6 +115,7 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/laraveles/spanish" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gHvsXgGPKhcj670xy6IbJDALYE" />
@@ -142,11 +143,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597784539845</updated>
-      <workItem from="1597784541377" duration="469000" />
+      <workItem from="1597784541377" duration="2183000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="645" y="326" width="624" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597785577121">
+      <screen x="0" y="0" width="1920" height="1049" />
+    </state>
+    <state x="645" y="326" width="624" height="396" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1049@0.0.1920.1049" timestamp="1597785577121" />
   </component>
 </project>
