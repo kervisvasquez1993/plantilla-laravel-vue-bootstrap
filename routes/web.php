@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]); // pasamos parametros para verificar via correo
+Route::group(['middleware' => ['auth', 'verified']], function (){
+    Route::get('/establecimiento/create', 'EstablecimientoController@create')->name('establecimiento.create');
+    Route::get('/establecimiento/edit', 'EstablecimientoController@edit')->name('establecimiento.edit');
 
-Route::get('/home', 'HomeController@index')->name('home');
+}); // grupo para que no se pueda acceder a la ruta sin verificar y aceder

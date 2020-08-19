@@ -53,7 +53,7 @@ class EstablecimientoController extends Controller
      */
     public function edit(establecimiento $establecimiento)
     {
-        //
+        return "desde edit";
     }
 
     /**
