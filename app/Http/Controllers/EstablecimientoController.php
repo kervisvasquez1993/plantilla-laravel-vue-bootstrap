@@ -12,10 +12,6 @@ class EstablecimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +20,7 @@ class EstablecimientoController extends Controller
      */
     public function create()
     {
-        //
+        return  'desde create';
     }
 
     /**

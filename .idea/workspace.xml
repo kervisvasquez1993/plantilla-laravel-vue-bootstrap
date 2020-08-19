@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3cbad260-1812-43a8-93cb-66ce8ee0b94c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/establecimientos/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/..env.swp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EstablecimientoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EstablecimientoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,6 +152,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -151,18 +174,39 @@
       <option name="presentableId" value="Default" />
       <updated>1597784539845</updated>
       <workItem from="1597784541377" duration="4979000" />
-      <workItem from="1597789559724" duration="734000" />
+      <workItem from="1597789559724" duration="3114000" />
+      <workItem from="1597868868718" duration="365000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="75" y="186" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597790558360">
+      <screen x="0" y="0" width="1920" height="1049" />
+    </state>
+    <state x="75" y="186" width="804" height="674" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1049@0.0.1920.1049" timestamp="1597790558360" />
     <state x="645" y="326" width="624" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597785577121">
       <screen x="0" y="0" width="1920" height="1049" />
     </state>
     <state x="645" y="326" width="624" height="396" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1049@0.0.1920.1049" timestamp="1597785577121" />
+    <state x="219" y="239" width="515" height="568" key="NewPhpClassDialog" timestamp="1597790908543">
+      <screen x="0" y="0" width="1920" height="1049" />
+    </state>
+    <state x="219" y="239" width="515" height="568" key="NewPhpClassDialog/0.0.1920.1049@0.0.1920.1049" timestamp="1597790908543" />
     <state x="441" y="160" key="SettingsEditor" timestamp="1597789521653">
       <screen x="0" y="0" width="1920" height="1049" />
     </state>
