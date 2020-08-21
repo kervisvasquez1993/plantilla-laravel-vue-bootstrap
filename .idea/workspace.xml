@@ -20,9 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cbad260-1812-43a8-93cb-66ce8ee0b94c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/mapa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/establecimientos/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EstablecimientoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EstablecimientoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/establecimientos/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/establecimientos/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +176,9 @@
       <updated>1597784539845</updated>
       <workItem from="1597784541377" duration="4979000" />
       <workItem from="1597789559724" duration="3114000" />
-      <workItem from="1597868868718" duration="1871000" />
+      <workItem from="1597868868718" duration="7067000" />
+      <workItem from="1597948964009" duration="1459000" />
+      <workItem from="1598036974515" duration="9165000" />
     </task>
     <servers />
   </component>
@@ -204,9 +210,9 @@
       <screen x="0" y="0" width="1920" height="1049" />
     </state>
     <state x="219" y="239" width="515" height="568" key="NewPhpClassDialog/0.0.1920.1049@0.0.1920.1049" timestamp="1597790908543" />
-    <state x="441" y="160" key="SettingsEditor" timestamp="1597789521653">
+    <state x="441" y="160" key="SettingsEditor" timestamp="1598049789411">
       <screen x="0" y="0" width="1920" height="1049" />
     </state>
-    <state x="441" y="160" key="SettingsEditor/0.0.1920.1049@0.0.1920.1049" timestamp="1597789521653" />
+    <state x="441" y="160" key="SettingsEditor/0.0.1920.1049@0.0.1920.1049" timestamp="1598049789411" />
   </component>
 </project>
