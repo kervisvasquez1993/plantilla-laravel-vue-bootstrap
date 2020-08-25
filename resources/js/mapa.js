@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let mapaForm = document.getElementById('mapa')
     if (mapaForm)
+
     {
         const lat = 10.2064567;
         const lng = -68.0127715;
@@ -16,7 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let marker;
 
         // agregar el pin
-        marker = new L.marker([lat, lng]).addTo(mapa);
+        marker = new L.marker([lat, lng], {
+            draggable : true,
+            autoPan   : true
+        }).addTo(mapa);
+
+        // detectar movimiento  del market
+        marker.on('moveend', function (e){
+            marker = e.target
+             let posicion = marker.getLatLng() // ===== getLatLng() ==== trae la latitud y lonjitud
+            //centrar automaticamente
+            mapa.panTo(new L.LatLng( posicion.lat, posicion.lng));
+        })
     }
 
 

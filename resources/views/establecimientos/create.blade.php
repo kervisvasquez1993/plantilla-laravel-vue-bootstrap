@@ -3,6 +3,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           crossorigin=""/>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
+    />
 @endsection
 @section('content')
     <div class="container">
@@ -69,10 +73,7 @@
 
                 <fieldset class="border p-4">
                     <legend class="text-primary text-center">Direccion del establecimiento</legend>
-                    <div class="form-group">
-                        <div id="mapa" style="height: 400px">
-                        </div>
-                    </div>
+
                     <div class="form-group">
                         <label for="formbuscador">Ingresa la direccion del establecimiento</label>
                         <input
@@ -86,6 +87,43 @@
                         <p class="text-secundary mt-5 mb-3 text-center">El asistente colocara una direccion estimada, mueve el ping al lugar correcto</p>
 
                     </div>
+                    <div class="form-group">
+                        <div id="mapa" style="height: 400px">
+                        </div>
+                    </div>
+                    <a href="" class="informacion"> Confirme que los siguientes parrafos son correctos</a>
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input  type="text"
+                                id="direccion"
+                                class="form-control @error('direccion') is-invalid @enderror"
+                                placeholder="Direccion"
+                                value="{{old('direccion')}}"
+                        >
+                        @error('direccion')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+
+                    </div>
+                    <div class="form-group">
+                        <label for="colonia">Colonia</label>
+                        <input  type="text"
+                                id="colonia"
+                                class="form-control @error('colonia') is-invalid @enderror"
+                                placeholder="colonia"
+                                value="{{old('colonia')}}"
+                        >
+                        @error('direccion')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                        @enderror
+
+                    </div>
+                    <input type="hidden" id="lat" name="lat" value="{{old('lat')}}">
+                    <input type="hidden" id="lng" name="lng" value="{{old('lng')}}">
                 </fieldset>
 
             </form>
@@ -95,24 +133,8 @@
 @section('script')
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin=""></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            const lat = 10.2064567;
-            const lng = -68.0127715;
-
-            const mapa = L.map('mapa').setView([lat, lng], 18);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(mapa);
-
-            let marker;
-
-            // agregar el pin
-            marker = new L.marker([lat, lng]).addTo(mapa);
-
-        });
+            crossorigin="">
     </script>
+    <script src="https://unpkg.com/esri-leaflet" defer></script>
+    <script src="https://unpkg.com/esri-leaflet-geocoder" defer></script>
 @endsection
