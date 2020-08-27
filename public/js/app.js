@@ -63999,9 +63999,22 @@ document.addEventListener('DOMContentLoaded', function () {
   if (mapaForm) {
     // funciones del codigo
     var buscarDireciones = function buscarDireciones(e) {
-      if (e.target.value.length >= 10) // pasamos el evento sin necesidad de pasarlo en la funcion
+      // if(e.target.value.length > 2)// pasamos el evento sin necesidad de pasarlo en la funcion
+      if (e.target.value.length > 5) //
         {
-          console.log(provider);
+          provider.search({
+            query: e.target.value + ' Valencia VE'
+          }).then(function (resultado) {
+            if (resultado) {
+              geocodeService.reverse().latlng(resultado[0].bounds[0], 18).run(function (error, resultado) {// llenar los inpus
+                // centrar el mapa
+                // agregar el pin
+                // mover el pin
+              });
+            }
+          })["catch"](function (error) {
+            return console.log(error);
+          });
         }
     };
 
@@ -64022,7 +64035,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var geocodeService = L.esri.Geocoding.geocodeService(); // buscador de direcciones
 
     var buscador = document.querySelector('#formbuscador');
-    buscador.addEventListener('input', buscarDireciones); // agregar el pin
+    buscador.addEventListener('blur', buscarDireciones); // agregar el pin
 
     marker = new L.marker([lat, lng], {
       draggable: true,

@@ -1,36 +1,25 @@
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 const provider = new OpenStreetMapProvider();
-
-
 document.addEventListener('DOMContentLoaded', () => {
-
-
     let mapaForm = document.getElementById('mapa')
     if (mapaForm)
-
     {
         const lat = 10.2064567;
         const lng = -68.0127715;
-
         const mapa = L.map('mapa').setView([lat, lng], 18);
-
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(mapa);
-
         let marker;
         const geocodeService = L.esri.Geocoding.geocodeService()
-
         // buscador de direcciones
         const buscador = document.querySelector('#formbuscador')
-        buscador.addEventListener('input', buscarDireciones)
-
+        buscador.addEventListener('blur', buscarDireciones)
         // agregar el pin
         marker = new L.marker([lat, lng], {
             draggable : true,
             autoPan   : true
         }).addTo(mapa);
-
         // detectar movimiento  del market
         marker.on('moveend', function (e){
             marker = e.target
@@ -48,14 +37,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 // llenar los campos
                 llenarInput(resultado)
             })
-
         })
-
         // funciones del codigo
         function buscarDireciones(e){
-            if(e.target.value.length >= 10)// pasamos el evento sin necesidad de pasarlo en la funcion
+           // if(e.target.value.length > 2)// pasamos el evento sin necesidad de pasarlo en la funcion
+            if(e.target.value.length > 5)//
             {
-                    console.log(provider)
+                    provider.search({query: e.target.value + ' Valencia VE'})
+                            .then(resultado => {
+                                if (resultado){
+                                    geocodeService.reverse().latlng(resultado[0].bounds[0],18).run(function (error, resultado){
+                                         // llenar los inpus
+
+                                        // centrar el mapa
+
+                                        // agregar el pin
+
+                                        // mover el pin
+                                    })
+                                }
+                            }).catch(error => console.log(error))
             }
         }
         function llenarInput(resultado){
