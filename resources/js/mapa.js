@@ -1,3 +1,7 @@
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+const provider = new OpenStreetMapProvider();
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
 
@@ -16,6 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let marker;
         const geocodeService = L.esri.Geocoding.geocodeService()
+
+        // buscador de direcciones
+        const buscador = document.querySelector('#formbuscador')
+        buscador.addEventListener('input', buscarDireciones)
 
         // agregar el pin
         marker = new L.marker([lat, lng], {
@@ -36,9 +44,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 //console.log(resultado)
                 marker.bindPopup(resultado.address.LongLabel)
                 marker.openPopup()
+
+                // llenar los campos
+                llenarInput(resultado)
             })
 
         })
+
+        // funciones del codigo
+        function buscarDireciones(e){
+            if(e.target.value.length >= 10)// pasamos el evento sin necesidad de pasarlo en la funcion
+            {
+                    console.log(provider)
+            }
+        }
+        function llenarInput(resultado){
+
+            document.querySelector('#direccion').value = resultado.address.Address || ''
+            document.querySelector('#colonia').value = resultado.address.Neighborhood || ''
+            document.querySelector('#lat').value = resultado.latlng.lat
+            document.querySelector('#lng').value = resultado.latlng.lng
+
+        }
     }
 
 
