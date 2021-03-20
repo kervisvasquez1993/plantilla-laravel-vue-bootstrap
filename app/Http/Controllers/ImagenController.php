@@ -51,6 +51,12 @@ class ImagenController extends Controller
             'imagen' => $imagen 
         ];
 
+        /* Imagen::where('ruta_imagen', '=', $imagen)->delete(); */
+
+        $imagenEliminar = Imagen::where('ruta_imagen', '=', $imagen)->firstOrFail();
+
+        Imagen::destroy($imagenEliminar->id);
+
         return response()->json($respuesta);
     }
     
