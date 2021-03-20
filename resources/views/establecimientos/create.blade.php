@@ -7,6 +7,9 @@
         rel="stylesheet"
         href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
     />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.8.1/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
+
 @endsection
 @section('content')
     <div class="container">
@@ -35,7 +38,7 @@
 
                     </div>
                     <div class="form-group">
-                        <lavel for="categoria">Categoría</lavel>
+                        <label for="categoria">Categoría </label>
                         <select name="categoria_id"
                                 id="categoria"
                                 class="form-control  @error('categoria_id') aria-invalid  @enderror"
@@ -194,6 +197,14 @@
                             @enderror
                         </div>
                 </fieldset>
+
+                <fieldset class="border p-4 mt-5">
+                    <legend  class="text-primary">Información Establecimiento: </legend>
+                        <div class="form-group">
+                            <label for="imagenes"> Imagenes</label>
+                            <div id="dropzone" class="dropzone from-control"></div>
+                        </div>
+                </fieldset>
                 <input type="hidden" id="uuid" name="uuid" value="{{Str::uuid()->toString()}}" >
                 <input type="submit" class="btn btn-primary mt-3 d-block" value="Registrar Establecimiento">
 
@@ -208,4 +219,6 @@
     </script>
     <script src="https://unpkg.com/esri-leaflet" defer></script>
     <script src="https://unpkg.com/esri-leaflet-geocoder" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/dropzone.min.js" integrity="sha256-OG/103wXh6XINV06JTPspzNgKNa/jnP1LjPP5Y3XQDY=" crossorigin="anonymous" defer></script>
+
 @endsection

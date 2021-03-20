@@ -63863,7 +63863,9 @@ var app = new Vue({
   el: '#app'
 });
 
-__webpack_require__(/*! ./mapa */ "./resources/js/mapa.js");
+__webpack_require__(/*! ./mapa.js */ "./resources/js/mapa.js");
+
+__webpack_require__(/*! ./dropzone.js */ "./resources/js/dropzone.js");
 
 /***/ }),
 
@@ -63978,6 +63980,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/dropzone.js":
+/*!**********************************!*\
+  !*** ./resources/js/dropzone.js ***!
+  \**********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (document.querySelector('#dropzone')) {
+    Dropzone.autoDiscover = false;
+    var dropzone = new Dropzone('div#dropzone', {
+      url: '/imagenes/store',
+      dictDefaultMessage: 'Sube Hasta 10 Imagenes',
+      maxFiles: 10,
+      requied: true,
+      acceptedFiles: ".png, .jpg,  .git, .bmp",
+      headers: {
+        "X-CSRF-TOKEN : ": document.querySelector('meta[name=csrf-token]').content
+      }
+    });
+  }
+});
 
 /***/ }),
 
