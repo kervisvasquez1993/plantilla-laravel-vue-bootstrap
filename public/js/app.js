@@ -64000,16 +64000,30 @@ document.addEventListener('DOMContentLoaded', function () {
       maxFiles: 10,
       requied: true,
       acceptedFiles: ".png, .jpg,  .gif, .bmp, .jpeg",
+      addRemoveLinks: true,
+      dictRemoveFile: 'eliminar Imagen',
       headers: {
         'X-CSRF-TOKEN': token
       },
       success: function success(file, respuesta) {
         /* console.log(file) */
         console.log(respuesta);
+        file.nombreServidor = respuesta.archivo;
       },
       sending: function sending(file, xhr, formData) {
         formData.append('uuid', document.querySelector('#uuid').value);
         /* console.log('enviendo') */
+      },
+      removedfile: function removedfile(file, respuesta) {
+        console.log(file);
+        var params = {
+          imagen: file.nombreServidor
+        };
+        axios.post('/imagenes/destroy', params).then(function (respuesta) {
+          console.log(respuesta); //eliminar del DOM
+
+          file.previewElement.parentNode.removeChild(file.previewElement);
+        });
       }
     });
   }
