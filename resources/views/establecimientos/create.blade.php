@@ -15,9 +15,14 @@
     <div class="container">
         <h1 class="text-center m-4">Registrar</h1>
         <div class="mt-5 row justify-content-center">
-            <form action=""
+            <form 
+                  action="{{route('establecimiento.store')}}"
+                  method="POST"
                   class="col-md-9 col-xs-12 card card-body"
+                  enctype="multipart/form-data"
             >
+
+            @csrf
                 <fieldset class="border p-4">
                     <legend class="text-primary text-center">Nombre y categoria</legend>
                     <div class="form-group">
@@ -102,6 +107,7 @@
                                 class="form-control @error('direccion') is-invalid @enderror"
                                 placeholder="Direccion"
                                 value="{{old('direccion')}}"
+                                name="direccion"
                         >
                         @error('direccion')
                         <div class="invalid-feedback">

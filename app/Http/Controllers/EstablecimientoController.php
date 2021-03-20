@@ -33,7 +33,20 @@ class EstablecimientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nombre' => 'required',
+            'categoria_id' => 'required|exists:App\Categoria,id',
+            'imagen_principal' => 'image|max:1000',
+            'direccion' => 'required',
+            'colonia' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
+            'telefono' => 'required|numeric',
+            'descripcion' => 'required|min:50',
+            'apertura' => 'date_format:H:i',
+            'cierre' => 'date_format:H:i|after:apertura',
+            'uuid' => 'required|uuid'
+        ]);
     }
 
     /**
