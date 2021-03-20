@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +22,5 @@ Auth::routes(['verify' => true]); // pasamos parametros para verificar via corre
 Route::group(['middleware' => ['auth', 'verified']], function (){
     Route::get('/establecimiento/create', 'EstablecimientoController@create')->name('establecimiento.create');
     Route::get('/establecimiento/edit', 'EstablecimientoController@edit')->name('establecimiento.edit');
-
+    Route::post('/imagenes/store', 'ImagenController@store')->name('imagenes.store');
 }); // grupo para que no se pueda acceder a la ruta sin verificar y aceder

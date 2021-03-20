@@ -63987,25 +63987,29 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************!*\
   !*** ./resources/js/dropzone.js ***!
   \**********************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/*! no static exports found */
+/***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
   if (document.querySelector('#dropzone')) {
     Dropzone.autoDiscover = false;
+    var token = document.querySelector('meta[name=csrf-token]').content;
     var dropzone = new Dropzone('div#dropzone', {
       url: '/imagenes/store',
       dictDefaultMessage: 'Sube Hasta 10 Imagenes',
       maxFiles: 10,
       requied: true,
-      acceptedFiles: ".png, .jpg,  .git, .bmp",
+      acceptedFiles: ".png, .jpg,  .gif, .bmp, .jpeg",
       headers: {
-        "X-CSRF-TOKEN : ": document.querySelector('meta[name=csrf-token]').content
+        'X-CSRF-TOKEN': token
+      },
+      success: function success(file, respuesta) {
+        /* console.log(file) */
+        console.log(respuesta);
+      },
+      sending: function sending(file, xhr, formData) {
+        formData.append('uuid', document.querySelector('#uuid').value);
+        /* console.log('enviendo') */
       }
     });
   }

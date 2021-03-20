@@ -199,10 +199,10 @@
                 </fieldset>
 
                 <fieldset class="border p-4 mt-5">
-                    <legend  class="text-primary">Información Establecimiento: </legend>
+                    <legend  class="text-primary">Imágenes Establecimiento: </legend>
                         <div class="form-group">
-                            <label for="imagenes"> Imagenes</label>
-                            <div id="dropzone" class="dropzone from-control"></div>
+                            <label for="imagenes">Imagenes</label>
+                            <div id="dropzone" class="dropzone form-control"></div>
                         </div>
                 </fieldset>
                 <input type="hidden" id="uuid" name="uuid" value="{{Str::uuid()->toString()}}" >
@@ -220,5 +220,5 @@
     <script src="https://unpkg.com/esri-leaflet" defer></script>
     <script src="https://unpkg.com/esri-leaflet-geocoder" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.0/dropzone.min.js" integrity="sha256-OG/103wXh6XINV06JTPspzNgKNa/jnP1LjPP5Y3XQDY=" crossorigin="anonymous" defer></script>
-
+    <script></script>
 @endsection
