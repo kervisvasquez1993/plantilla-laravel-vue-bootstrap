@@ -19,12 +19,17 @@ class establecimiento extends Model
         'descripcion',
         'apertura',
         'cierre',
-        'uuid'
+        'uuid',
+        'user_id'
 
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'categoria_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
+    public function categoria()
+     {
+         return $this->belongsTo(Categoria::class, 'categoria_id');
+     }
 }
