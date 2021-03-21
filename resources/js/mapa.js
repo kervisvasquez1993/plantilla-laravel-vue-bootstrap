@@ -1,73 +1,124 @@
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 const provider = new OpenStreetMapProvider();
+
 document.addEventListener('DOMContentLoaded', () => {
-    let mapaForm = document.getElementById('mapa')
-    if (mapaForm)
-    {
-        const lat = 10.2064567;
-        const lng = -68.0127715;
-        const mapa = L.map('mapa').setView([lat, lng], 18);
+
+
+    if(document.querySelector('#mapa')) {
+
+        const lat = document.querySelector('#lat').value === '' ? 20.666332695977 : document.querySelector('#lat').value;
+        const lng = document.querySelector('#lng').value === '' ? -103.392177745699 : document.querySelector('#lng').value;
+
+        const mapa = L.map('mapa').setView([lat, lng], 16);
+
+        // Eliminar pines previos
+        let markers = new L.FeatureGroup().addTo(mapa);
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(mapa);
+
         let marker;
-        const geocodeService = L.esri.Geocoding.geocodeService()
-        // buscador de direcciones
-        const buscador = document.querySelector('#formbuscador')
-        buscador.addEventListener('blur', buscarDireciones)
+
         // agregar el pin
         marker = new L.marker([lat, lng], {
-            draggable : true,
-            autoPan   : true
+            draggable: true,
+            autoPan: true
         }).addTo(mapa);
-        // detectar movimiento  del market
-        marker.on('moveend', function (e){
-            marker = e.target
-             let posicion = marker.getLatLng() // ===== getLatLng() ==== trae la latitud y lonjitud
-            //centrar automaticamente
-            mapa.panTo(new L.LatLng( posicion.lat, posicion.lng));
 
-            // Reverse Geocoding cuando el usuario ubica el pin
-            geocodeService.reverse().latlng(posicion,18).run(function (error, resultado){
-               // console.log(error)
-                //console.log(resultado)
-                marker.bindPopup(resultado.address.LongLabel)
-                marker.openPopup()
+        // Agregar el pin a las capas
+        markers.addLayer(marker);
 
-                // llenar los campos
-                llenarInput(resultado)
-            })
-        })
-        // funciones del codigo
-        function buscarDireciones(e){
-           // if(e.target.value.length > 2)// pasamos el evento sin necesidad de pasarlo en la funcion
-            if(e.target.value.length > 5)//
-            {
-                    provider.search({query: e.target.value + ' Valencia VE'})
-                            .then(resultado => {
-                                if (resultado){
-                                    geocodeService.reverse().latlng(resultado[0].bounds[0],18).run(function (error, resultado){
-                                         // llenar los inpus
 
-                                        // centrar el mapa
+       // Geocode Service
+       const geocodeService = L.esri.Geocoding.geocodeService();
 
-                                        // agregar el pin
+       // Buscador de direcciones
+       const buscador = document.querySelector('#formbuscador');
+       buscador.addEventListener('blur', buscarDireccion);
 
-                                        // mover el pin
-                                    })
-                                }
-                            }).catch(error => console.log(error))
+        reubicarPin(marker);
+
+        function reubicarPin(marker) {
+            // Detectar movimiento del marker
+            marker.on('moveend', function(e) {
+                marker = e.target;
+
+                const posicion = marker.getLatLng();
+
+                // console.log(posicion);
+
+                // Centrar automaticamente
+                mapa.panTo( new L.LatLng( posicion.lat, posicion.lng ) );
+
+                // Reverse Geocoding, cuando el usuario reubica el pin
+                geocodeService.reverse().latlng(posicion, 16).run(function(error, resultado) {
+                    // console.log(error);
+
+                    // console.log(resultado.address);
+
+                    marker.bindPopup(resultado.address.LongLabel);
+                    marker.openPopup();
+
+                    // Llenar los campos
+                    llenarInputs(resultado);
+
+                })
+            });
+        }
+
+        function buscarDireccion(e) {
+
+
+            if(e.target.value.length > 1) {
+                provider.search({query: e.target.value + ' Guadalajara MX ' })
+                    .then( resultado => {
+                        if( resultado  ){
+
+                            // Limpiar los pines previos
+                            markers.clearLayers();
+
+                            // Reverse Geocoding, cuando el usuario reubica el pin
+                            geocodeService.reverse().latlng(resultado[0].bounds[0], 16).run(function(error, resultado) {
+
+                                // Llenar los inputs
+                                llenarInputs(resultado);
+
+                                // Centrar el mapa
+                                mapa.setView(resultado.latlng)
+
+
+                                // Agregar el Pin
+                                marker = new L.marker(resultado.latlng, {
+                                    draggable: true,
+                                    autoPan: true
+                                }).addTo(mapa);
+
+                                // asignar el contenedor de markers el nuevo pin
+                                markers.addLayer(marker);
+
+
+                                // Mover el pin
+                                 reubicarPin(marker);
+
+                            })
+                        }
+                    })
+                    .catch( error => {
+                        // console.log(error)
+                    })
             }
         }
-        function llenarInput(resultado){
 
-            document.querySelector('#direccion').value = resultado.address.Address || ''
-            document.querySelector('#colonia').value = resultado.address.Neighborhood || ''
-            document.querySelector('#lat').value = resultado.latlng.lat
-            document.querySelector('#lng').value = resultado.latlng.lng
 
+        function llenarInputs(resultado) {
+            // console.log(resultado)
+            document.querySelector('#direccion').value = resultado.address.Address || '';
+            document.querySelector('#colonia').value = resultado.address.Neighborhood || '';
+            document.querySelector('#lat').value = resultado.latlng.lat || '';
+            document.querySelector('#lng').value = resultado.latlng.lng || '';
         }
-    }
 
+    }
 
 });

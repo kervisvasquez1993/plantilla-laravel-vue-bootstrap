@@ -21,13 +21,13 @@ class CreateEstablecimientosTable extends Migration
         });
         Schema::create('establecimientos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('name');
             $table->foreignId('categoria_id')->constrained(); //busca el prurar
             $table->string('imagen_principal');
             $table->string('direccion');
             $table->string('colonia');
-            $table->string('lat');
-            $table->string('lng');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->string('telefono');
             $table->text('descripcion');
             $table->time('apertura');

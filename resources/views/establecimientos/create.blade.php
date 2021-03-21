@@ -26,16 +26,18 @@
                 <fieldset class="border p-4">
                     <legend class="text-primary text-center">Nombre y categoria</legend>
                     <div class="form-group">
+                       
+                    <div class="form-group">
                         <label for="nombre">Nombre Establecimiento</label>
                         <input
                             type="text"
-                            id="nombre"
-                            class="form-control  @error('nombre') aria-invalid  @enderror"
-                            placeholder="Nombre establecimiento"
-                            name="nombre"
-                            value="{{old('nombre')}}"
+                            id="name"
+                            class="form-control  @error('name') aria-invalid  @enderror"
+                            placeholder="name establecimiento"
+                            name="name"
+                            value="{{old('name')}}"
                         >
-                        @error('nombre')
+                        @error('name')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -123,8 +125,9 @@
                                 class="form-control @error('colonia') is-invalid @enderror"
                                 placeholder="colonia"
                                 value="{{old('colonia')}}"
+                                name="colonia"
                         >
-                        @error('direccion')
+                        @error('colonia')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>
