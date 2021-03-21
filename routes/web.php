@@ -14,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'InicioController')->name('inicio');
+
 
 Auth::routes(['verify' => true]); // pasamos parametros para verificar via correo
 Route::group(['middleware' => ['auth', 'verified']], function (){
