@@ -1,5 +1,15 @@
 <template>
-   <h1>desde inicio</h1>
+ <div>
+   <categoria-cafe></categoria-cafe>
+ </div>
 </template>
 
 
+<script>
+import CategoriaCafe from './CategoriaCafe'
+export default {
+   components : {
+         CategoriaCafe
+   }
+}
+</script>

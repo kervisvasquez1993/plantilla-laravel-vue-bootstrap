@@ -15,7 +15,7 @@ class CategoriaSeed extends Seeder
     public function run()
     {
         DB::table('categorias')->insert([
-            'nombre'  => 'Comidas',
+            'nombre'  => 'Comida',
             'slug' => Str::slug('Comidas'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -27,8 +27,8 @@ class CategoriaSeed extends Seeder
             'updated_at' => Carbon::now(),
         ]);
         DB::table('categorias')->insert([
-            'nombre'  => 'Ropa',
-            'slug' => Str::slug('Ropa'),
+            'nombre'  => 'Cafe',
+            'slug' => Str::slug('cafe'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
