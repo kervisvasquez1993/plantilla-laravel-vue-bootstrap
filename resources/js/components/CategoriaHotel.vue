@@ -25,17 +25,15 @@
 <script>
 export default {
     
-    data : function()
-    {
-        return {
-            hoteles : []
-        }
-    },
     mounted()
     {
         axios.get('/api/categorias/hoteles')
-                .then(respuesta => this.hoteles = respuesta.data )
-                      
+                .then(respuesta => this.$store.commit("AGREGAR_HOTELES",respuesta.data ))
+    },
+    computed: {
+        hoteles(){
+            return this.$store.state.hoteles /* pasar hoteles desde el state a componente de hoteles */
+        }
     }
 }
 </script>
