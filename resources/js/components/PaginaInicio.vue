@@ -11,7 +11,7 @@
 import CategoriaCafe from './CategoriaCafe'
 import CategoriaRestaurante from './CategoriaRestaurante'
 import CategoriaHotel from './CategoriaHotel'
-import store from '../store/index'
+import store from '../store'
 
 
 export default {

@@ -1980,17 +1980,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      cafes: []
-    };
-  },
   mounted: function mounted() {
     var _this = this;
 
     axios.get('/api/categorias/cafe').then(function (respuesta) {
-      return _this.cafes = respuesta.data;
+      return _this.$store.commit("AGREGAR_CAFES", respuesta.data);
     });
+  },
+  computed: {
+    cafes: function cafes() {
+      return this.$store.state.cafes;
+      /* traer los resultado del estate */
+    }
   }
 });
 
@@ -2108,7 +2109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CategoriaCafe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoriaCafe */ "./resources/js/components/CategoriaCafe.vue");
 /* harmony import */ var _CategoriaRestaurante__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CategoriaRestaurante */ "./resources/js/components/CategoriaRestaurante.vue");
 /* harmony import */ var _CategoriaHotel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CategoriaHotel */ "./resources/js/components/CategoriaHotel.vue");
-/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/index */ "./resources/js/store/index.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store */ "./resources/js/store/index.js");
 //
 //
 //
@@ -2123,7 +2124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  store: _store_index__WEBPACK_IMPORTED_MODULE_3__["default"],
+  store: _store__WEBPACK_IMPORTED_MODULE_3__["default"],
   components: {
     CategoriaCafe: _CategoriaCafe__WEBPACK_IMPORTED_MODULE_0__["default"],
     CategoriaRestaurante: _CategoriaRestaurante__WEBPACK_IMPORTED_MODULE_1__["default"],
