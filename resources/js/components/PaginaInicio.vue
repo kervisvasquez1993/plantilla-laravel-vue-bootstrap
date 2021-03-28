@@ -11,10 +11,11 @@
 import CategoriaCafe from './CategoriaCafe'
 import CategoriaRestaurante from './CategoriaRestaurante'
 import CategoriaHotel from './CategoriaHotel'
-
+import store from '../store/index'
 
 
 export default {
+   store,
    components : {
          CategoriaCafe,
          CategoriaRestaurante,
