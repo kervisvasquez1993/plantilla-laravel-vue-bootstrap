@@ -10,7 +10,7 @@ export default new Vuex.Store({
         restaurantes : []
       
     },
-    mutations : {
+    mutations : { /* mutation actualizan el estado de nuestro store */
         AGREGAR_CAFES(state, cafes) {
             state.cafes = cafes;
         },
