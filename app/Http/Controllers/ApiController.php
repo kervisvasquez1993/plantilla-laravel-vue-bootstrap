@@ -24,4 +24,10 @@ class ApiController extends Controller
         $establecimientos = establecimiento::where('categoria_id', $categoria->id)->with('categoria')->get();
         return response()->json($establecimientos);
     }
+
+    public function show(establecimiento $establecimiento)
+    {
+        return response()->json($establecimiento);
+    }
+
 }

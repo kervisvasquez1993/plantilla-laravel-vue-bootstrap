@@ -23,3 +23,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/categorias', 'ApiController@categorias')->name('categoria');
 Route::get('/categorias/{categoria}', 'ApiController@categoria')->name('categoria');
+Route::get('/establecimientos/{establecimiento}', 'ApiController@show')->name('establecimientos.show');
